@@ -2,14 +2,14 @@
 
 Схема:
 <p align="center">
-  <img src="https://github.com/vilafe/PostgreSQL-WriteAheadLog/blob/main/fotos/scheme.png" />
+  <img src="https://github.com/vilafe/bgs1/blob/master/fotos/scheme.png" />
 </p>
 
 The Ubuntu Server 22.04 LTS was chosen for the stand deployment.
 The servers have python 3.8.10 installed.
 
 <p align="center">
-  <img src="https://github.com/vilafe/PostgreSQL-WriteAheadLog/blob/main/fotos/1.jpg" />
+  <img src="https://github.com/vilafe/bgs1/blob/master/fotos/1.png" />
 </p>
 /home/vila/PostgreSQL-WriteAheadLog/fotos/1.png
 
@@ -18,19 +18,19 @@ Stages
 1. Создание двух виртуальных машин (ВМ):
 
 <p align="center">
-  <img src="https://github.com/vilafe/PostgreSQL-WriteAheadLog/blob/main/fotos/2.jpg" />
+  <img src="https://github.com/vilafe/bgs1/blob/master/fotos/2.jpg" />
 </p>
 	/home/vila/PostgreSQL-WriteAheadLog/fotos/2.png
 2. Начальная сетевая конфигурация ВМ
 
 Ubuntu_pSQL_1:
 <p align="center">
-  <img src="https://github.com/vilafe/PostgreSQL-WriteAheadLog/blob/main/fotos/3.jpg" />
+  <img src="https://github.com/vilafe/bgs1/blob/master/fotos/3.jpg" />
 </p>
 /home/vila/PostgreSQL-WriteAheadLog/fotos/3.png
 Ubuntu_pSQL_2:
 <p align="center">
-  <img src="https://github.com/vilafe/PostgreSQL-WriteAheadLog/blob/main/fotos/4.jpg" />
+  <img src="https://github.com/vilafe/bgs1/blob/master/fotos/4.jpg" />
 </p>
 /home/vila/PostgreSQL-WriteAheadLog/fotos/4.png
 
