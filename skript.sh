@@ -1,6 +1,6 @@
 #!/bin/bash
 #Connect to SQL2
-ssh root@sql1.lab.local << EOF
+ssh root@sql1.vila.local << EOF
 apt-get update
 apt-get install -y curl gnupg2
 echo "deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" > /etc/apt/sources.list.d/pgdg.list
@@ -59,7 +59,7 @@ echo "Install on  sql1 is done!"
 
 
 #Connect to SQL2
-ssh root@sql2.lab.local << EOF
+ssh root@sql2.vila.local << EOF
 apt-get update
 apt-get install -y curl gnupg2
 echo "deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" > /etc/apt/sources.list.d/pgdg.list
@@ -86,7 +86,7 @@ cat > /home/skript/agent.sh << AUF
 #!/bin/bash
 while :
 do
-if pg_isready -h sql1.lab.local; then
+if pg_isready -h sql1.vila.local; then
   echo "200 OK NE GOVORY, POLUCHAY 501, 503"
   rm /tmp/to_master
 elif test -f /tmp/to_master_approve; then
@@ -100,7 +100,7 @@ AUF
 touch /etc/systemd/system/agent.service
 cat > /etc/systemd/system/agent.service << AUF
 [Unit]
-Description = Agent on sql2.lab.local
+Description = Agent on sql2.vila.local
 [Service]
 RemainAfterExit=true
 ExecStart=/bin/sh /home/skript/agent.sh
@@ -128,13 +128,13 @@ cat > /home/skript/agent.sh << AUF
 #!/bin/bash
 while :
 do
-if pg_isready -h sql1.lab.local; then
+if pg_isready -h sql1.vila.local; then
   echo "200 OK NE GOVORY, POLUCHAY 501, 503"
-  ssh root@sql2.lab.local "rm /tmp/to_master_approve"
-  ssh root@sql2.lab.local "iptables -D OUTPUT -d 192.168.216.210 -j DROP"
+  ssh root@sql2.vila.local "rm /tmp/to_master_approve"
+  ssh root@sql2.vila.local "iptables -D OUTPUT -d 192.168.216.210 -j DROP"
 else
-  ssh root@sql2.lab.local "touch /tmp/to_master_approve"
-  ssh root@sql2.lab.local "iptables -A OUTPUT -d 192.168.216.210 -j DROP"
+  ssh root@sql2.vila.local "touch /tmp/to_master_approve"
+  ssh root@sql2.vila.local "iptables -A OUTPUT -d 192.168.216.210 -j DROP"
 fi;
 sleep 0.01
 done
@@ -144,7 +144,7 @@ AUF
 touch /etc/systemd/system/agent.service
 cat > /etc/systemd/system/agent.service << AUF
 [Unit]
-Description = Agent on agent.lab.local
+Description = Agent on agent.vila.local
 [Service]
 RemainAfterExit=true
 ExecStart=/bin/sh /home/skript/agent.sh
