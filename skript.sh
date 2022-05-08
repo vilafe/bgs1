@@ -19,7 +19,7 @@ psql -U postgres -d master  -c "INSERT INTO master (name, surname) VALUES ('Kons
 psql -U postgres -d master  -c "INSERT INTO master (name, surname) VALUES ('Ira', 'Bilyavshuk');"
 
 #Create user replica for replication
-psql -U postgres -c "CREATE USER replica REPLICATION LOGIN CONNECTION LIMIT 2 ENCRYPTED PASSWORD '34650qqQQ';"
+psql -U postgres -c "CREATE USER replica REPLICATION LOGIN CONNECTION LIMIT 2 ENCRYPTED PASSWORD '123456pass';"
 cp /etc/postgresql/10/main/pg_hba.conf /etc/postgresql/10/main/pg_hba{`date +%s`}.bkp
 sed  -i '/host    replication/d' /etc/postgresql/10/main/pg_hba.conf
 echo "host    replication     replica             192.168.216.0/24                 trust" | tee -a /etc/postgresql/10/main/pg_hba.conf
