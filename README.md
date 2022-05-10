@@ -203,14 +203,3 @@ chmod +x /etc/systemd/system/agent.service
 systemctl enable agent
 systemctl restart agent
 ```
-
-# Writing scripts
-The `verify1.py` script verifies the operation of the database servers in the cluster and is installed on both servers in the cluster. The script's task is to detect the lack of communication with the Primary node and promote itself to Primary, as well as replicate data from the Primary node to StandBy.
-
-# Connect to cluster
-To simulate an external connection to the cluster, the script "main.py" was created
-
-# PostreSQL failover cluster Load testing 
-Load testing was implemented using the script load_test.py
-- The script consists of several steps:
-> Sending primary SQL `INSERT` queries; Shut down the PostgreSQL cluster's Primary server while sending SQL queries; Change the PostgreSQL cluster server's StandBy role to Primary; Send SQL queries to the new Primary server; preempt to reactivate the primary server if it becomes active again.
